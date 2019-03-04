@@ -5,8 +5,6 @@
 #=================================================
 
 app=pia_front
-#domain=$YNH_APP_ARG_DOMAIN
-#path_url=$YNH_APP_ARG_PATH
 final_path=/opt/$app
 test ! -e "$final_path" || echo "This path already contains a folder" exit
 
