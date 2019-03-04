@@ -30,6 +30,7 @@ yum -y install git nodejs ufw
 
 echo Install angular-cli
 npm install -g @angular/cli
+
 #==============================================
 # FIREWALL
 #==============================================
