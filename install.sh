@@ -19,18 +19,17 @@ test ! -e "$final_path" || echo "This path already contains a folder" exit
 #==============================================
 
 echo Install Nodejs LTS 10.x
-curl --silent --location https://rpm.nodesource.com/setup_10.x | bash - &> /dev/null
+curl --silent --location https://rpm.nodesource.com/setup_10.x | bash -
 
 
 echo Get updates
-yum update -y &> /dev/null
+yum update -y
 
 echo Install dependencies
-yum -y install git nodejs ufw &> /dev/null
+yum -y install git nodejs ufw
 
 echo Install angular-cli
-npm install -g @angular/cli &> /dev/null
-
+npm install -g @angular/cli
 #==============================================
 # FIREWALL
 #==============================================
@@ -38,32 +37,32 @@ npm install -g @angular/cli &> /dev/null
 echo Open ports
 #ufw allow http &> /dev/null
 #ufw allow https &> /dev/null
-ufw allow 4200/tcp &> /dev/null
-ufw allow ssh &> /dev/null
+ufw allow 4200/tcp
+ufw allow ssh
 echo Enable firewall
-ufw enable &> /dev/null
+ufw enable
 
 #==============================================
 # INSTALL PIA
 #==============================================
 
 echo Download PIA
-git clone https://github.com/LINCnil/pia.git &> /dev/null
+git clone https://github.com/LINCnil/pia.git
 
 echo Install PIA
-mv pia $final_path/ &> /dev/null
+mv pia $final_path/
 
 #=================================================
 # MODIFY A CONFIG FILE
 #=================================================
 
-mv $final_path/src/environments/environment.prod.ts.example $final_path/src/environments/environment.prod.ts &> /dev/null
+mv $final_path/src/environments/environment.prod.ts.example $final_path/src/environments/environment.prod.ts
 
-cd $final_path &> /dev/null
+cd $final_path
 
-npm install &> /dev/null
-npm audit fix --force &> /dev/null
-ng build prod &> /dev/null
+npm install
+npm audit fix --force
+ng build prod
 
 #==============================================
 # INSTALL SERVICE
@@ -98,5 +97,5 @@ WantedBy=multi-user.target"
 #chown -R www-data:www-data $final_path &> /dev/null
 
 echo Enable services
-systemctl enable $app.service &> /dev/null
-systemctl start $app.service &> /dev/null
+systemctl enable $app.service
+systemctl start $app.service
