@@ -61,27 +61,27 @@ ng build prod &> /dev/null
 #==============================================
 # INSTALL SERVICE
 #==============================================
+echo Install $app service
+echo
 
-#echo >>
+"[Unit]
+Description=$app
+After=network.target
 
-#"[Unit]
-#Description=pia
-#After=network.target
+[Service]
+WorkingDirectory=$final_path
+User=admin
+Group=users
+Type=simple
+UMask=000
+ExecStart=/usr/bin/ng serve --port 4200 --host 0.0.0.0
+RestartSec=30
+Restart=always
 
-#[Service]
-#WorkingDirectory=$final_path
-#User=admin
-#Group=users
-#Type=simple
-#UMask=000
-#ExecStart=/usr/bin/ng serve --port 4200 --host 0.0.0.0
-#RestartSec=30
-#Restart=always
+[Install]
+WantedBy=multi-user.target"
 
-#[Install]
-#WantedBy=multi-user.target"
-
-#/etc/systemd/system/$app.service
+> /etc/systemd/system/$app.service
 
 #=================================================
 # SETUP APP
