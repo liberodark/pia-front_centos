@@ -39,8 +39,9 @@ npm install -g @angular/cli &> /dev/null
 #==============================================
 
 echo Open ports
-ufw allow http &> /dev/null
-ufw allow https &> /dev/null
+#ufw allow http &> /dev/null
+#ufw allow https &> /dev/null
+ufw allow 4200/tcp &> /dev/null
 ufw allow ssh &> /dev/null
 echo Enable firewall
 ufw enable &> /dev/null
