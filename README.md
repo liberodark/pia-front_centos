@@ -8,7 +8,7 @@ Link : https://github.com/LINCnil/pia
 Copy and Past in your terminal :
 
 ```bash
-wget -Nnv https://raw.githubusercontent.com/liberodark/pia-front_centos/master/launcher.sh && chmod +x launcher.sh; ./launcher.sh
+wget -Nnv https://raw.githubusercontent.com/liberodark/pia-front_centos/master/install.sh && chmod +x install.sh; ./install.sh
 ```
 
 # Linux Compatibility :
