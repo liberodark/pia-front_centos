@@ -4,10 +4,7 @@
 # CHECK ROOT
 #=================================================
 
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
-fi
+if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
 #=================================================
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
