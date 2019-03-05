@@ -28,9 +28,6 @@ curl --silent --location https://rpm.nodesource.com/setup_10.x | bash - &> /dev/
 echo Install dependencies
 yum -y install wget nodejs ufw &> /dev/null
 
-echo Install angular-cli
-npm install -g @angular/cli &> /dev/null
-
 #==============================================
 # FIREWALL
 #==============================================
