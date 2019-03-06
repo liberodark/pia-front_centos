@@ -84,7 +84,8 @@ pushd $final_path
 echo Install dependencies of pia
 npm install &> /dev/null
 echo Install Angular
-npm install -g @angular/cli@1.7.4 &> /dev/null
+#npm install -g @angular/cli@1.7.4 &> /dev/null
+npm install -g @angular/cli
 popd
 
 #=================================================
