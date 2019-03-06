@@ -49,7 +49,7 @@ curl --silent --location https://rpm.nodesource.com/setup_10.x | bash - &> /dev/
 #yum update -y &> /dev/null
 
 echo Install dependencies
-yum -y install wget nodejs ufw &> /dev/null
+yum -y install nodejs ufw &> /dev/null
 
 #==============================================
 # FIREWALL
