@@ -44,12 +44,15 @@ test ! -e "$final_path" || echo "This path already contains a folder" exit
 echo Install Nodejs LTS 10.x
 curl --silent --location https://rpm.nodesource.com/setup_10.x | bash - &> /dev/null
 
+echo Install Yarn
+curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo &> /dev/null
+
 
 #echo Get updates
 #yum update -y &> /dev/null
 
 echo Install dependencies
-yum -y install nodejs ufw &> /dev/null
+yum -y install nodejs npm yarn &> /dev/null
 
 #==============================================
 # FIREWALL
