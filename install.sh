@@ -72,10 +72,10 @@ ufw allow ssh &> /dev/null
 echo Download PIA
 
 wget https://github.com/kosmas58/pia/archive/2.0.0.5.tar.gz -O pia.tar.gz &> /dev/null
-tar -xvf pia.tar.gz && rm pia.tar.gz &> /dev/null
+tar -xvf pia.tar.gz && sudo rm pia.tar.gz &> /dev/null
 
 echo Install PIA
-mv pia/ $final_path/ &> /dev/null
+mv pia-* $final_path &> /dev/null
 
 pushd $final_path
 npm install &> /dev/null
