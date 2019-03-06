@@ -52,21 +52,21 @@ curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.r
 #yum update -y &> /dev/null
 
 echo Install dependencies
-yum -y install nodejs npm yarn &> /dev/null
+yum -y install nodejs npm yarn firewalld &> /dev/null
 
 #==============================================
 # FIREWALL
 #==============================================
 
 echo Enable firewall
-systemctl enable ufw &> /dev/null
-systemctl start ufw &> /dev/null
+systemctl enable firewalld &> /dev/null
+systemctl start firewalld &> /dev/null
 
 echo Open ports
 #ufw allow http &> /dev/null
 #ufw allow https &> /dev/null
-ufw allow 4200/tcp &> /dev/null
-ufw allow ssh &> /dev/null
+firewall-cmd --zone=public --add-port=4200/tcp --permanent &> /dev/null
+#ufw allow ssh &> /dev/null
 
 #==============================================
 # INSTALL PIA
