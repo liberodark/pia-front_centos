@@ -87,6 +87,14 @@ npm install -g @angular/cli
 popd
 
 #=================================================
+# CREATE DEDICATED USER
+#=================================================
+
+echo Create a system user
+useradd $app &> /dev/null
+usermod -aG users $app &> /dev/null
+
+#=================================================
 # MODIFY A CONFIG FILE
 #=================================================
 
@@ -110,7 +118,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=$final_path
-User=root
+User=$app
 Group=users
 Type=simple
 UMask=000
