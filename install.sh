@@ -1,4 +1,27 @@
-#!/bin/sh
+#!/bin/bash
+#
+# About: Install PIA Front automatically
+# Author: liberodark
+# License: GNU GPLv3
+
+  update_source="https://raw.githubusercontent.com/liberodark/pia-front_centos/master/install.sh"
+  version="1.0.0"
+
+  echo "Welcome on PIA Front Install Script $version"
+
+  # make update if asked
+  if [ "$1" = "noupdate" ]; then
+    update_status="false"
+  else
+    update_status="true"
+  fi ;
+
+  # update updater
+  if [ "$update_status" = "true" ]; then
+    wget -O $0 $update_source
+    $0 noupdate
+    exit 0
+fi ;
 
 #=================================================
 # CHECK ROOT
@@ -49,7 +72,7 @@ ufw allow ssh &> /dev/null
 echo Download PIA
 
 wget https://github.com/kosmas58/pia/archive/2.0.0.5.tar.gz -o pia.tar.gz &> /dev/null
-tar -xvf pia.tar.gz && rm pia.tar.gz
+tar -xvf pia.tar.gz && rm pia.tar.gz &> /dev/null
 
 echo Install PIA
 mv pia/ $final_path/ &> /dev/null
