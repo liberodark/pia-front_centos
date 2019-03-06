@@ -78,8 +78,8 @@ echo Install PIA
 mv pia-* $final_path &> /dev/null
 
 pushd $final_path
-npm install &> /dev/null
-npm install -g @angular/cli@1.7.4 &> /dev/null
+npm install
+npm install -g @angular/cli@1.7.4
 popd
 
 #=================================================
