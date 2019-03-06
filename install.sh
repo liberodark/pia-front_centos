@@ -99,7 +99,8 @@ popd
 #==============================================
 echo Install $app service
 
-echo "[Unit]
+echo "
+[Unit]
 Description=$app
 After=network.target
 
@@ -114,9 +115,7 @@ RestartSec=30
 Restart=always
 
 [Install]
-WantedBy=multi-user.target"
-
-> /etc/systemd/system/$app.service
+WantedBy=multi-user.target" > /etc/systemd/system/$app.service
 
 #=================================================
 # SETUP APP
