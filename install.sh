@@ -98,9 +98,8 @@ popd
 # INSTALL SERVICE
 #==============================================
 echo Install $app service
-echo
 
-"[Unit]
+echo "[Unit]
 Description=$app
 After=network.target
 
