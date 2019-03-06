@@ -111,7 +111,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=$final_path
-User=pia
+User=root
 Group=users
 Type=simple
 UMask=000
