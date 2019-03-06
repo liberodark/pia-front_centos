@@ -78,8 +78,10 @@ echo Install PIA
 mv pia-* $final_path &> /dev/null
 
 pushd $final_path
-npm install
-npm install -g @angular/cli@1.7.4
+echo Install dependencies of pia
+npm install &> /dev/null
+echo Install Angular
+npm install -g @angular/cli@1.7.4 &> /dev/null
 popd
 
 #=================================================
@@ -106,13 +108,13 @@ After=network.target
 
 [Service]
 WorkingDirectory=$final_path
-User=admin
+User=pia
 Group=users
 Type=simple
 UMask=000
-ExecStart=/usr/bin/ng serve --port 4200 --host 0.0.0.0
-RestartSec=30
-Restart=always
+ExecStart=/usr/bin/ng serve --port 4200 --host 0.0.0.0 --disable-host-check
+Restart=on-failure
+StartLimitInterval=600
 
 [Install]
 WantedBy=multi-user.target" > /etc/systemd/system/$app.service
