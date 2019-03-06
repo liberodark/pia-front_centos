@@ -63,10 +63,8 @@ systemctl enable firewalld &> /dev/null
 systemctl start firewalld &> /dev/null
 
 echo Open ports
-#ufw allow http &> /dev/null
-#ufw allow https &> /dev/null
 firewall-cmd --zone=public --add-port=4200/tcp --permanent &> /dev/null
-#ufw allow ssh &> /dev/null
+firewall-cmd --reload &> /dev/null
 
 #==============================================
 # INSTALL PIA
